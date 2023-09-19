@@ -4,7 +4,7 @@ import phonenumbers
 from phonenumbers import PhoneNumberFormat
 from phonenumbers.phonenumberutil import NumberParseException
 from django.shortcuts import render, redirect
-from .forms import UserProfileForm
+from .forms import forms
 
 def user_form(request):
     if request.method == 'POST':
