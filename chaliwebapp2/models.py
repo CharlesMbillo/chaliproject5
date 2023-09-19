@@ -21,7 +21,7 @@ class User(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-        def user_form(request):
+        def UserForm(request):
             if request.method == 'POST':
             # If the form was submitted, process the data
                 form = UserForm(request.POST)
@@ -31,12 +31,12 @@ class User(models.Model):
             try:
                 parsed_number = phonenumbers.parse(phonenumber, None)
                 if not phonenumbers.is_valid_number(parsed_number):
-                    form.add_error('phonenumber', 'Invalid phone number format')
+                    form.add_error('phonenumber', 'Invalid phonenumber format')
                 else:
                     form.save()
                     return redirect('profile_success')  # Redirect to a success page
             except NumberParseException:
-                form.add_error('phone_number', 'Invalid phonenumber format')
+                form.add_error('phonenumber', 'Invalid phonenumber format')
             else:
         # If it's a GET request, display the empty form
                     form = UserForm()
