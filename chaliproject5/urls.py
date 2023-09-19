@@ -26,3 +26,11 @@ urlpatterns = [
     path('user-form/', user_form, name='user_form'),
     path('success/', success, name='success'),
 ]
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='/static/favicon.png', permanent=True)
+
+urlpatterns =[
+
+    path(r'^favicon\.png$', favicon_view),
+    ...]

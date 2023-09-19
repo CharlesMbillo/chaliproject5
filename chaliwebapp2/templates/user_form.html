@@ -1,3 +1,4 @@
+{%load static%}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -7,6 +8,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <link rel="shortcut icon" href="{%  static  'favicon.png' %}">
+
     <title>Create User Profile</title>
 </head>
 <body>
