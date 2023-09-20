@@ -32,12 +32,12 @@ def User(request):
     if request.method == 'POST':
         # If the form was submitted, process the data
         form = User(request.POST)
-        if form.is_valid():
+        if forms.is_valid():
             # Form data is valid, save the user profile
-            form.save()
+            forms.save()
             return redirect('success')  # Redirect to a success page
     else:
         # If it's a GET request, display the form with any previous user input
-        form = User()
+        forms = User()
 
-    return render(request, 'user_form.html', {'form': form})
+    return render(request, 'user_form.html', {'forms': forms})
