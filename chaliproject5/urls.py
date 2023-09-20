@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +31,5 @@ from django.views.generic.base import RedirectView
 favicon_view = RedirectView.as_view(url='/static/favicon.png', permanent=True)
 
 urlpatterns =[
-        re_path (r'^favicon\.png$', favicon_view),
+        path (r'^favicon\.png$', favicon_view),
     ]
