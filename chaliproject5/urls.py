@@ -15,17 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.urls import include
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
+    path('', include('chaliwebapp2.urls'))
 ]
 from django.urls import path
 from django.urls import re_path
 from chaliwebapp2.views import user_form, success
 
 urlpatterns = [
-    path('user-form/', user_form, name='user_form'),
+    path('user-form', user_form, name='user_form'),
     path('success/', success, name='success'),
+    path('', include('chaliwebapp2.urls'))
 ]
 from django.views.generic.base import RedirectView
 
