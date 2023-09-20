@@ -1,9 +1,9 @@
 {%load static%}
-<form method="post">
+<forms method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ forms.as_p }}
     <button type="submit">Submit</button>
-</form>
+</forms>
 
 <!DOCTYPE html>
 <html>
@@ -20,30 +20,30 @@
         
         <!-- Render first_name field -->
         <div>
-            {{ form.first_name.label_tag }}
-            {{ form.first_name }}
-            {{ form.first_name.errors }}
+            {{ forms.first_name.label_tag }}
+            {{ forms.first_name }}
+            {{ forms.first_name.errors }}
         </div>
 
         <!-- Render last_name field -->
         <div>
-            {{ form.last_name.label_tag }}
-            {{ form.last_name }}
-            {{ form.last_name.errors }}
+            {{ forms.last_name.label_tag }}
+            {{ forms.last_name }}
+            {{ forms.last_name.errors }}
         </div>
 
         <!-- Render phone_number field -->
         <div>
-            {{ form.phonenumber.label_tag }}
-            {{ form.phonenumber }}
-            {{ form.phonenumber.errors }}
+            {{ forms.phonenumber.label_tag }}
+            {{ forms.phonenumber }}
+            {{ forms.phonenumber.errors }}
         </div>
 
         <!-- Render email field -->
         <div>
-            {{ form.email.label_tag }}
-            {{ form.email }}
-            {{ form.email.errors }}
+            {{ forms.email.label_tag }}
+            {{ forms.email }}
+            {{ forms.email.errors }}
         </div>
 
         <button type="submit">Submit</button>
