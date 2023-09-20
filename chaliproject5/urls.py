@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 from django.urls import path
+from django.urls import re_path
 from chaliwebapp2.views import user_form, success
 
 urlpatterns = [
@@ -31,5 +32,5 @@ from django.views.generic.base import RedirectView
 favicon_view = RedirectView.as_view(url='/static/favicon.png', permanent=True)
 
 urlpatterns =[
-        path (r'^favicon\.png$', favicon_view),
+        re_path (r'^favicon\.png$', favicon_view),
     ]
