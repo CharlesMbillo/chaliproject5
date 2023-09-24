@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator, EmailValidator
-
+from django.db import redirect
+import phonenumbers
 class User(models.Model):
     # Define the first name field with a maximum length of 30 characters
     first_name = models.CharField(max_length=30)
@@ -21,7 +22,7 @@ class User(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-        def User(request):
+    def User(request):
             if request.method == 'POST':
             # If the form was submitted, process the data
                 forms = User(request.POST)
@@ -29,17 +30,17 @@ class User(models.Model):
                 # Validate the phone number using phonenumbers library
                 phonenumber = forms.cleaned_data['phonenumber']
             try:
-                parsed_number = phonenumbers.parse(phonenumber, None)
-                if not phonenumbers.is_valid_number(parsed_number):
+                parsed_number = phonenumber.parse(phonenumber, None)
+                if not phonenumber.is_valid_number(parsed_number):
                     forms.add_error('phonenumber', 'Invalid phonenumber format')
                 else:
                     forms.save()
-                    return redirect('profile_success')  # Redirect to a success page
+                    return redirect('success')  # Redirect to a success page
             except NumberParseException:
                 forms.add_error('phonenumber', 'Invalid phonenumber format')
             else:
         # If it's a GET request, display the empty form
                     forms = User()
 
-        return render(request, 'user_form.html', {'forms': forms})
+#return render(request, 'user_form.html', {'forms': forms})
 

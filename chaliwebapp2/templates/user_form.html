@@ -1,52 +1,17 @@
-{%load static%}
-<forms method="post">
-    {% csrf_token %}
-    {{ forms.as_p }}
-    <button type="submit">Submit</button>
-</forms>
+# index.html
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
+{% block content %}
+    <h1>User Form</h1>
 
-    <link rel="shortcut icon" href="{%  static  'favicon.png' %}">
-
-    <title>Create User Profile</title>
-</head>
-<body>
-    <h1>Create User Profile</h1>
-    <form method="post">
+    <form action="" method="post">
         {% csrf_token %}
-        
-        <!-- Render first_name field -->
-        <div>
-            {{ forms.first_name.label_tag }}
-            {{ forms.first_name }}
-            {{ forms.first_name.errors }}
-        </div>
 
-        <!-- Render last_name field -->
-        <div>
-            {{ forms.last_name.label_tag }}
-            {{ forms.last_name }}
-            {{ forms.last_name.errors }}
-        </div>
+        <input type="text" name="first_name" placeholder="First name">
+        <input type="text" name="last_name" placeholder="Last name">
+        <input type="text" name="phonenumber" placeholder="Phonenumber">
+        <input type="email" name="email" placeholder="Email address">
 
-        <!-- Render phone_number field -->
-        <div>
-            {{ forms.phonenumber.label_tag }}
-            {{ forms.phonenumber }}
-            {{ forms.phonenumber.errors }}
-        </div>
-
-        <!-- Render email field -->
-        <div>
-            {{ forms.email.label_tag }}
-            {{ forms.email }}
-            {{ forms.email.errors }}
-        </div>
-
-        <button type="submit">Submit</button>
+        <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+{% endblock %}
