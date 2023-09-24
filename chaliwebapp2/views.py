@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import User
-
+from . import views
 def User(request):
     form = User()
 
@@ -10,7 +10,7 @@ def User(request):
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('User/')
 
     context = {
         "form": form,
