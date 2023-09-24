@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator, EmailValidator
-from django.db import redirect
+from django.shortcuts import redirect
 import phonenumbers
 class User(models.Model):
     # Define the first name field with a maximum length of 30 characters
